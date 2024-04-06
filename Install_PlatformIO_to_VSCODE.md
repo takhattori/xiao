@@ -1,6 +1,6 @@
 #Install_PlatformIO_to_VSCODE
 
-・VSCODEインストール
+:play_button:・VSCODEインストール
 
 ・Extentionで
 
