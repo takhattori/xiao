@@ -13,7 +13,7 @@
 　　　->ユーザフォルダ("thatt"）配下の".platformio/platforms"に"nordicnrf52"ができる
 　・"nordicnrf52/boards"配下に"xiaoblesense.json"を新規作成。下記をコピーペースト
 
-----------------------------
+#
 {
   "build": {
     "arduino":{
@@ -74,7 +74,7 @@
   "url": "https://wiki.seeedstudio.com/XIAO_BLE",
   "vendor": "Seeed Studio"
 }
-----------------------------
+#
 
 ・新規プロジェクトを作成。boardには"Arduino Nano 33 BLE"を指定。
 　."platformio/packages"配下に"framework-arduino-mbed"と"tool*"ができていることを確認
