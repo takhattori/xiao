@@ -14,7 +14,7 @@
 　・"nordicnrf52/boards"配下に"xiaoblesense.json"を新規作成。下記をコピーペースト
 
 #
-![](xiaoblesense.json)
+[xialblesense.json](./xiaoblesense.json)
 #
 
 ・新規プロジェクトを作成。boardには"Arduino Nano 33 BLE"を指定。
