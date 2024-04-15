@@ -92,7 +92,7 @@
 #
 
 
-・新規プロジェクトを作成。boardには"Arduino Nano 33 BLE"を指定。
+・ひな形を作るため最初、新規プロジェクトを作成。boardには"Arduino Nano 33 BLE"を指定。
 
 　."platformio/packages"配下に"framework-arduino-mbed"と"tool*"ができていることを確認
 
