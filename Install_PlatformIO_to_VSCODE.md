@@ -14,7 +14,7 @@
 
 　をインストール
 
-・Boardの準備
+・Boardの準備(1)（mbedの場合：SPIが異常に遅い）
 
 　・ターミナルでコマンド打つ。
 
@@ -92,24 +92,61 @@
 #
 
 
-・ひな形を作るため最初、新規プロジェクトを作成。boardには"Arduino Nano 33 BLE"を指定。
+　・ひな形を作るため最初、新規プロジェクトを作成。boardには"Arduino Nano 33 BLE"を指定。
 
-　."platformio/packages"配下に"framework-arduino-mbed"と"tool*"ができていることを確認
-
-
-・下記ファイルをダウンロードし、2.6.1配下のファイルを"framework-arduino-mbed"にコピー
-
-　wget -c https://files.seeedstudio.com/arduino/core/nRF52840/Seeed_XIAO_BLE_nRF52840_Sense261.tar.bz2
-
-　tar -xjf Seeed_XIAO_BLE_nRF52840_Sense261.tar.bz2
-
-　cp -r 2.6.1/* $HOME/.platformio/packages/framework-arduino-mbed
+　　　."platformio/packages"配下に"framework-arduino-mbed"と"tool*"ができていることを確認
 
 
+　・下記ファイルをダウンロードし、2.6.1配下のファイルを"framework-arduino-mbed"にコピー
 
-・"nordicnrf52"配下の"platform.py"を追加加工
+　　　wget -c https://files.seeedstudio.com/arduino/core/nRF52840/Seeed_XIAO_BLE_nRF52840_Sense261.tar.bz2
+
+　　　tar -xjf Seeed_XIAO_BLE_nRF52840_Sense261.tar.bz2
+
+　　　cp -r 2.6.1/* $HOME/.platformio/packages/framework-arduino-mbed
+
+
+
+　・"nordicnrf52"配下の"platform.py"を追加加工
 
 　　if board in ("nano33ble", "nicla_sense_me", "xiaoblesense"):
 
 　　self.packages["tool-adafruit-nrfutil"]["optional"] = False
+
+
+
+・Boardの準備(2)（Non-mbedの場合、不具合は不明。SPIは正常）
+
+  - Adafruit nrf52840 based board（例えば nrf52840 feather express）で空プロジェクトを作る
+  
+  - 一度ビルドすると必要ファイルをもってくる
+
+  - 必要ファイルコピーする
+
+  - "name": "Seeed Xiao BLE Sense" + "vendor": "Seeed Studio"　を選択
+
+
+------
+
+curl https://files.seeedstudio.com/arduino/core/nRF52840/Arduino_core_nRF52840.tar.bz2 -o arduino.core.1.0.0.tar.bz2
+
+tar -xjf arduino.core.1.0.0.tar.bz2
+
+rm arduino.core.1.0.0.tar.bz2 
+
+# download the board from GitHub
+
+curl https://gist.githubusercontent.com/turing-complete-labs/0763b9d89913a4647c9fa1b988a5bdb6/raw/2100fb176d73a431080cc7f688d7ac8b603e03a3/xiao_ble_sense.json -o ~/.platformio/platforms/nordicnrf52/boards/xiao_ble_sense.json
+
+# copy the needed files
+
+cp 1.0.0/cores/nRF5/linker/nrf52840_s140_v7.ld ~/.platformio/packages/framework-arduinoadafruitnrf52/cores/nRF5/linker
+
+cp -r 1.0.0/cores/nRF5/nordic/softdevice/s140_nrf52_7.3.0_API ~/.platformio/packages/framework-arduinoadafruitnrf52/cores/nRF5/nordic/softdevice
+
+cp -r 1.0.0/variants/Seeed_XIAO_nRF52840_Sense ~/.platformio/packages/framework-arduinoadafruitnrf52/variants
+
+------
+
+
 
