@@ -113,6 +113,8 @@
 
 　　self.packages["tool-adafruit-nrfutil"]["optional"] = False
 
+.
+
 
 
 ・Boardの準備(2)（Non-mbedの場合、不具合は不明。SPIは正常）
