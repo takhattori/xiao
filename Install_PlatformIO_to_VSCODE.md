@@ -134,11 +134,7 @@ tar -xjf arduino.core.1.0.0.tar.bz2
 
 rm arduino.core.1.0.0.tar.bz2 
 
-# download the board from GitHub
-
 curl https://gist.githubusercontent.com/turing-complete-labs/0763b9d89913a4647c9fa1b988a5bdb6/raw/2100fb176d73a431080cc7f688d7ac8b603e03a3/xiao_ble_sense.json -o ~/.platformio/platforms/nordicnrf52/boards/xiao_ble_sense.json
-
-# copy the needed files
 
 cp 1.0.0/cores/nRF5/linker/nrf52840_s140_v7.ld ~/.platformio/packages/framework-arduinoadafruitnrf52/cores/nRF5/linker
 
